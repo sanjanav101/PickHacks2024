@@ -34,8 +34,9 @@ const WelcomeScreen = ({ onStart }) => {
 
   return (
 
-    <View style={styles.container}>
-      <Text style={styles.welcomeText}>Welcome to the Safety in Numbers App!</Text>
+<View style={styles.container}>
+      <Text style={styles.welcomeText}> Welcome to the{'\n'} <Text style={styles.highlightedText}>Safety in Numbers</Text> {"\n"} App!
+    </Text>
       <TextInput
         style={styles.input}
         placeholder="Emergency Contact Name"
@@ -49,7 +50,7 @@ const WelcomeScreen = ({ onStart }) => {
         placeholderTextColor="#CCCCCC"
         value={phoneNumber}
         onChangeText={setPhoneNumber}
-        marginBottom = {10}
+        marginBottom={10}
       />
       <TextInput
         style={styles.input}
@@ -57,7 +58,7 @@ const WelcomeScreen = ({ onStart }) => {
         placeholderTextColor="#CCCCCC"
         value={speedDial}
         onChangeText={setSpeedDial}
-        marginBottom = {30}
+        marginBottom={30}
       />
       <TextInput
         style={styles.input}
@@ -74,13 +75,13 @@ const WelcomeScreen = ({ onStart }) => {
         secureTextEntry={true}
         value={passcodeConfirm}
         onChangeText={setPasscodeConfirm}
-        marginBottom = {30}
+        marginBottom={30}
       />
       <TouchableOpacity style={styles.startButton} onPress={handleStart}>
         <Text style={styles.startButtonText}>Start</Text>
       </TouchableOpacity>
 
-      <Text style={styles.welcomeText} marginTop = {30}>*Type 911 for emergency speed-dial*</Text>
+      <Text style={[styles.welcomeText, { marginTop: 30 }]}>*Type 911 for emergency speed-dial*</Text>
     </View>
   );
 };
@@ -181,25 +182,31 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000',
-    justifyContent: 'center', //affects position of welcome screen
+    justifyContent: 'center', // Vertically center the content
+    paddingHorizontal: 20, // Add horizontal padding
   },
   welcomeText: {
     fontSize: 24,
     color: '#fff',
     marginBottom: 20,
     textAlign: 'center',
+    fontWeight: 'bold',
   },
-  startButton: {//box aound start
-    backgroundColor: '#FFA317',
-    paddingVertical: 30,
-    paddingHorizontal: 20,
+  highlightedText: {
+    color: '#ff6347', // Change 'red' to whatever color you desire
+    fontSize: 35,
+    fontWeight: 'bold'
+  },
+  startButton: {
+    backgroundColor: '#ff6347',
+    paddingVertical: 15,
     borderRadius: 5,
+    alignItems: 'center',
   },
   startButtonText: {
     fontSize: 18,
-    color: '#000',
+    color: '#fff',
     fontWeight: 'bold',
-    textAlign: 'center'
   },
   resultContainer: { 
     paddingRight: 20,
@@ -255,14 +262,12 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   input: {
-    width: '80%',
     height: 40,
     borderWidth: 1,
-    borderColor: '#CCCCCC',
-    color: '#CCCCCC',
+    borderColor: '#fff',
+    color: '#fff',
     borderRadius: 5,
     paddingHorizontal: 10,
     marginBottom: 10,
-    alignSelf: 'center'
   }
 });
